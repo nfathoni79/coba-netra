@@ -2,6 +2,7 @@ package id.nfathoni.cobanetra;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import java.util.Objects;
@@ -28,6 +29,9 @@ public class MainActivity extends AppCompatActivity implements SearchTweetsListe
             String query = Objects.requireNonNull(binding.etSearch.getText()).toString();
             usage.searchTweets(query);
         });
+
+        binding.btToHome.setOnClickListener(view ->
+                startActivity(new Intent(this, HomeActivity.class)));
     }
 
     @Override

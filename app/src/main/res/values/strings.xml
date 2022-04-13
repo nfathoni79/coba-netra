@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">CobaNetra</string>
+    <string name="key_mode">key_mode</string>
+    <string name="key_preference">id.nfathoni.cobanetra.PREFERENCE_FILE_KEY</string>
+    <string name="label_mode_cell">Mode Seluler</string>
+    <string name="label_mode_sat">Mode Satelit</string>
+    <string name="info_mode_cell">Internet menggunakan jaringan seluler atau WiFi biasa</string>
+    <string name="info_mode_sat">Internet menggunakan jaringan satelit melalui WiFi NetraHub</string>
+    <string name="bt_mode_change">Ubah</string>
 </resources>
