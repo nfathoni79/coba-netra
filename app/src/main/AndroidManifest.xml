@@ -15,6 +15,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CobaNetra">
         <activity
+            android:name=".PendingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LogbookActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EncryptActivity"
+            android:exported="false" />
+        <activity
             android:name=".ModeActivity"
             android:exported="false" />
         <activity

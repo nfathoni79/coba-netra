@@ -26,6 +26,12 @@ public class HomeActivity extends AppCompatActivity {
 
         binding.tvModeChange.setOnClickListener(view ->
                 startActivity(new Intent(this, ModeActivity.class)));
+
+        binding.btToLogbook.setOnClickListener(view ->
+                startActivity(new Intent(this, LogbookActivity.class)));
+
+        binding.btToPending.setOnClickListener(view ->
+                startActivity(new Intent(this, PendingActivity.class)));
     }
 
     @Override

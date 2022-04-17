@@ -32,6 +32,9 @@ public class MainActivity extends AppCompatActivity implements SearchTweetsListe
 
         binding.btToHome.setOnClickListener(view ->
                 startActivity(new Intent(this, HomeActivity.class)));
+
+        binding.btToEnc.setOnClickListener(view ->
+                startActivity(new Intent(this, EncryptActivity.class)));
     }
 
     @Override
