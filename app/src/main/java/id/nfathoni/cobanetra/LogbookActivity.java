@@ -59,7 +59,7 @@ public class LogbookActivity extends AppCompatActivity implements SendUpListener
             if (encrypted != null) {
                 String hexed = HexUtil.stringToHex(encrypted);
                 Log.d(TAG, "Hexed: " + hexed);
-                netraApi.sendUp(Long.toString(logbook.getEpochCreatedAt()), hexed);
+                netraApi.sendUp(this, hexed);
             } else {
                 dismissProgressDialog();
                 showErrorDialog("Something wrong in encryption");

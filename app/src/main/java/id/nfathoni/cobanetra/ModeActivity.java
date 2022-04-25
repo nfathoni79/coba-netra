@@ -22,7 +22,7 @@ import id.nfathoni.cobanetra.util.PrefUtil;
 
 public class ModeActivity extends AppCompatActivity {
 
-    private static final String NETRAHUB_PREFIX = "\"nx";
+    private static final String NETRAHUB_PREFIX = "\"NetraHub";
 
     private ActivityModeBinding binding;
     private WifiManager mWifiManager;

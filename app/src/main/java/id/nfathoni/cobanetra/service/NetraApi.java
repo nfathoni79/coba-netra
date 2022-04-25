@@ -1,5 +1,6 @@
 package id.nfathoni.cobanetra.service;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
+import cz.msebera.android.httpclient.entity.StringEntity;
 import id.nfathoni.cobanetra.model.UpMessage;
 
 public class NetraApi {
@@ -36,21 +38,41 @@ public class NetraApi {
         getDownListener = listener;
     }
 
-    public void sendUp(String id, String payload) {
+    public void sendUp(Context context, String payload) {
         RequestParams params = new RequestParams();
-        params.put("id", id);
         params.put("payload", payload);
+        params.put("dataType", 1);
 
-        NetraClient.post("/up", params, new JsonHttpResponseHandler() {
+        StringEntity stringEntity = null;
+
+        try {
+            JSONObject jsonParams = new JSONObject();
+            jsonParams.put("payload", payload);
+            jsonParams.put("dataType", 1);
+            stringEntity = new StringEntity(jsonParams.toString());
+            stringEntity.setContentType("application/json");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        NetraClient.post(context, "/v1/outbox", stringEntity, "application/json", new JsonHttpResponseHandler() {
             @Override
-            public void onSuccess(int statusCode, Header[] headers, String responseString) {
-                super.onSuccess(statusCode, headers, responseString);
-                sendUpListener.onSendUpSuccess(statusCode, responseString);
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                super.onSuccess(statusCode, headers, response);
+
+                try {
+                    String message = response.getString("message");
+                    sendUpListener.onSendUpSuccess(statusCode, message);
+                } catch (JSONException e) {
+                    Log.e(TAG, e.toString());
+                    sendUpListener.onSendUpFailure(statusCode, e.toString());
+                }
             }
 
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
                 super.onFailure(statusCode, headers, throwable, errorResponse);
+                Log.e(TAG, "Status: " + statusCode);
 
                 if (errorResponse != null) {
                     sendUpListener.onSendUpFailure(statusCode, errorResponse.toString());
@@ -62,7 +84,7 @@ public class NetraApi {
     }
 
     public void getPendingUp() {
-        NetraClient.get("/up_pending", null, new JsonHttpResponseHandler() {
+        NetraClient.get("/v1/outbox", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 super.onSuccess(statusCode, headers, response);
