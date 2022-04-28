@@ -35,6 +35,9 @@ public class MainActivity extends AppCompatActivity implements SearchTweetsListe
 
         binding.btToEnc.setOnClickListener(view ->
                 startActivity(new Intent(this, EncryptActivity.class)));
+
+        binding.btToCoba.setOnClickListener(view ->
+                startActivity(new Intent(this, CobaActivity.class)));
     }
 
     @Override
