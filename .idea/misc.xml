@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/naufa/AndroidStudioProjects/coba-netra/app/src/main/res/layout/activity_coba.xml" value="0.15384615384615385" />
+        <entry key="..\:/Users/naufa/AndroidStudioProjects/coba-netra/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/naufa/AndroidStudioProjects/coba-netra/app/src/main/res/layout/item_product.xml" value="0.33" />
+        <entry key="..\:/Users/naufa/AndroidStudioProjects/coba-netra/app/src/main/res/menu/menu_coba.xml" value="0.22447916666666667" />
         <entry key="app/src/main/res/layout/activity_encrypt.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_logbook.xml" value="0.33" />

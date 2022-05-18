@@ -16,6 +16,10 @@
         android:theme="@style/Theme.CobaNetra"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".CobaActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
+        <activity
             android:name=".PendingActivity"
             android:exported="false" />
         <activity

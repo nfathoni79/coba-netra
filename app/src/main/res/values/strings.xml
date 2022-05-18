@@ -7,4 +7,5 @@
     <string name="info_mode_cell">Internet menggunakan jaringan seluler atau WiFi biasa</string>
     <string name="info_mode_sat">Internet menggunakan jaringan satelit melalui WiFi NetraHub</string>
     <string name="bt_mode_change">Ubah</string>
+    <string name="menu_refresh">Refresh</string>
 </resources>
