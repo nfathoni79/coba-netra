@@ -92,7 +92,7 @@ public class NetraApi {
                 List<UpMessage> upMessages = new ArrayList<>();
 
                 try {
-                    for (int i = 0; i <= response.length(); i++) {
+                    for (int i = 0; i < response.length(); i++) {
                         JSONObject jsonMessage = response.getJSONObject(i);
                         String id = jsonMessage.getString("id");
                         String message = jsonMessage.getString("message");
@@ -129,7 +129,7 @@ public class NetraApi {
                 List<String> downMessages = new ArrayList<>();
 
                 try {
-                    for (int i = 0; i <+ response.length(); i++) {
+                    for (int i = 0; i < response.length(); i++) {
                         JSONObject jsonMessage = response.getJSONObject(i);
                         String message = jsonMessage.getString("message");
                         downMessages.add(message);
