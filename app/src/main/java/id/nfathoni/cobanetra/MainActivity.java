@@ -38,6 +38,9 @@ public class MainActivity extends AppCompatActivity implements SearchTweetsListe
 
         binding.btToCoba.setOnClickListener(view ->
                 startActivity(new Intent(this, CobaActivity.class)));
+
+        binding.btToNotif.setOnClickListener(view ->
+                startActivity(new Intent(this, NotifActivity.class)));
     }
 
     @Override
